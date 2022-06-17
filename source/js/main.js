@@ -8,9 +8,39 @@ let changeTextBtn = document.querySelector(".news__btn-change");
 let articleForChange = document.querySelector(".news__article");
 let btn = document.querySelector(".input__btn");
 
-
 // Add News
 btn.addEventListener("click", function () {
+  if (title.value != "" && article.value != "") {
+    btn.textContent = "publish"
+  }
+  if (title.value == "" && article.value == "") {
+    title.placeholder = "enter article name";
+    article.placeholder = "enter article text";
+    btn.classList.toggle("input__btn--error");
+    title.classList.toggle("input__title--error");
+    article.classList.toggle("input__article--error")
+    btn.textContent = "enter content"
+    return
+  }
+  if(article.value == "") {
+    article.placeholder = "enter article text";
+    article.classList.toggle("input__article--error")
+    title.classList.remove("input__title--error");
+    btn.classList.toggle("input__btn--error");
+    return
+  }
+  if (title.value == "") {
+    title.placeholder = "enter article name";
+    title.classList.toggle("input__title--error");
+    article.classList.remove("input__article--error")
+    btn.classList.toggle("input__btn--error");
+    return
+  }
+  title.placeholder = "";
+  article.placeholder = "";
+  title.classList.remove("input__title--error");
+  article.classList.remove("input__article--error")
+  btn.classList.remove("input__btn--error")
   let addNewsItem = document.createElement("div");
   addNewsItem.className = "news__item";
   let addNewsTitle = document.createElement("h2");
