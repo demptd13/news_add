@@ -42,16 +42,20 @@ btn.addEventListener("click", function () {
 
   btnChange.addEventListener("click", function () {
     addNewsArticle.contentEditable = "false"
+    addNewsTitle.contentEditable = "false"
     if (addNewsArticle.contentEditable = "false") {
       addNewsArticle.contentEditable = "true";
+      addNewsTitle.contentEditable = "true"
       this.textContent = "confirm changes";
       btnChange.addEventListener("click", function () {
         if (addNewsArticle.contentEditable = "true" && this.textContent == "confirm changes") {
           this.textContent = "edit article";
           addNewsArticle.contentEditable = "false"
+          addNewsTitle.contentEditable = "false"
         }
         else {
           addNewsArticle.contentEditable = "true";
+          addNewsTitle.contentEditable = "true"
           this.textContent = "confirm changes";
         }
       });
@@ -59,6 +63,7 @@ btn.addEventListener("click", function () {
     else {
       this.textContent = "edit article";
       addNewsArticle.contentEditable = "false"
+      addNewsTitle.contentEditable = "false"
     }
   });
 });
