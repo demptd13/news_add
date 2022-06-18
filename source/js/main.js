@@ -54,6 +54,9 @@ btn.addEventListener("click", function () {
 
   title.value = "";
   article.value = "";
+
+// Delete News
+
   let btnDelete = document.querySelector(".news__btn-delete");
   btnDelete.addEventListener("click", function () {
     this.parentElement.parentElement.remove()
@@ -63,6 +66,8 @@ btn.addEventListener("click", function () {
   let addNewsArticle = document.querySelector(".news__article");
   let addNewsTitle = document.querySelector(".news__title");
 
+// Change News
+  
   btnChange.addEventListener("click", function () {
     addNewsArticle.contentEditable = "false"
     addNewsTitle.contentEditable = "false"
@@ -90,33 +95,3 @@ btn.addEventListener("click", function () {
     }
   });
 });
-
-
-
-// let item = document.querySelector(".news__item");
-// let changeTextBtn = document.querySelector(".news__btn-change");
-// let articleForChange = document.querySelector(".news__article");
-
-
-  // let addNewsItem = document.createElement("div");
-  // addNewsItem.className = "news__item";
-  // let addNewsTitle = document.createElement("h2");
-  // addNewsTitle.className = "news__title";
-  // let addNewsArticle = document.createElement("p");
-  // addNewsArticle.className = "news__article";
-  // let buttons = document.createElement("div");
-  // buttons.className = "news__buttons";
-  // let btnDelete = document.createElement("button");
-  // btnDelete.className = "news__btn-delete";
-  // let btnChange = document.createElement("button");
-  // btnChange.className = "news__btn-change";
-  // addNewsItem.prepend(addNewsTitle);
-  // addNewsTitle.textContent = title.value;
-  // addNewsItem.append(addNewsArticle);
-  // addNewsArticle.textContent = article.value;
-  // buttons.prepend(btnChange);
-  // btnChange.textContent = "edit article";
-  // buttons.append(btnDelete);
-  // btnDelete.textContent = "delete article"
-  // addNewsItem.append(buttons);
-  // news.appendChild(addNewsItem);
