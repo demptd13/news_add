@@ -3,9 +3,6 @@
 let title = document.querySelector(".input__title");
 let article = document.querySelector(".input__article");
 let news = document.querySelector(".news");
-let item = document.querySelector(".news__item");
-let changeTextBtn = document.querySelector(".news__btn-change");
-let articleForChange = document.querySelector(".news__article");
 let btn = document.querySelector(".input__btn");
 
 // Add News
@@ -40,35 +37,31 @@ btn.addEventListener("click", function () {
   article.placeholder = "";
   title.classList.remove("input__title--error");
   article.classList.remove("input__article--error")
-  btn.classList.remove("input__btn--error")
-  let addNewsItem = document.createElement("div");
-  addNewsItem.className = "news__item";
-  let addNewsTitle = document.createElement("h2");
-  addNewsTitle.className = "news__title";
-  let addNewsArticle = document.createElement("p");
-  addNewsArticle.className = "news__article";
-  let buttons = document.createElement("div");
-  buttons.className = "news__buttons";
-  let btnDelete = document.createElement("button");
-  btnDelete.className = "news__btn-delete";
-  let btnChange = document.createElement("button");
-  btnChange.className = "news__btn-change";
-  addNewsItem.prepend(addNewsTitle);
-  addNewsTitle.textContent = title.value;
-  addNewsItem.append(addNewsArticle);
-  addNewsArticle.textContent = article.value;
-  buttons.prepend(btnChange);
-  btnChange.textContent = "edit article";
-  buttons.append(btnDelete);
-  btnDelete.textContent = "delete article"
-  addNewsItem.append(buttons);
-  news.appendChild(addNewsItem);
+  btn.classList.remove("input__btn--error");
+
+  let btnDeleteText = "delete";
+  let btnChangeText = "edit article";
+
+  news.insertAdjacentHTML("afterbegin",
+    `<div class="news__item">
+              <h2 class="news__title"> ${title.value} </h2>
+              <p class="news__article"> ${article.value} </p>
+              <div class="news__buttons">
+                <button class="news__btn-change"> ${btnChangeText} </button>
+                <button class="news__btn-delete"> ${btnDeleteText} </button>
+              </div>
+            </div>`);
+
   title.value = "";
   article.value = "";
-
+  let btnDelete = document.querySelector(".news__btn-delete");
   btnDelete.addEventListener("click", function () {
     this.parentElement.parentElement.remove()
   });
+
+  let btnChange = document.querySelector(".news__btn-change");
+  let addNewsArticle = document.querySelector(".news__article");
+  let addNewsTitle = document.querySelector(".news__title");
 
   btnChange.addEventListener("click", function () {
     addNewsArticle.contentEditable = "false"
@@ -99,3 +92,31 @@ btn.addEventListener("click", function () {
 });
 
 
+
+// let item = document.querySelector(".news__item");
+// let changeTextBtn = document.querySelector(".news__btn-change");
+// let articleForChange = document.querySelector(".news__article");
+
+
+  // let addNewsItem = document.createElement("div");
+  // addNewsItem.className = "news__item";
+  // let addNewsTitle = document.createElement("h2");
+  // addNewsTitle.className = "news__title";
+  // let addNewsArticle = document.createElement("p");
+  // addNewsArticle.className = "news__article";
+  // let buttons = document.createElement("div");
+  // buttons.className = "news__buttons";
+  // let btnDelete = document.createElement("button");
+  // btnDelete.className = "news__btn-delete";
+  // let btnChange = document.createElement("button");
+  // btnChange.className = "news__btn-change";
+  // addNewsItem.prepend(addNewsTitle);
+  // addNewsTitle.textContent = title.value;
+  // addNewsItem.append(addNewsArticle);
+  // addNewsArticle.textContent = article.value;
+  // buttons.prepend(btnChange);
+  // btnChange.textContent = "edit article";
+  // buttons.append(btnDelete);
+  // btnDelete.textContent = "delete article"
+  // addNewsItem.append(buttons);
+  // news.appendChild(addNewsItem);
